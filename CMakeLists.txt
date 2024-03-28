@@ -11,8 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Gui REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Gui DBus REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui DBus REQUIRED)
 find_package(QHotkey REQUIRED)
 
 add_executable(odysseus-session
@@ -20,4 +20,4 @@ add_executable(odysseus-session
   processmanager.h processmanager.cpp
 )
 
-target_link_libraries(odysseus-session Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui qhotkey)
+target_link_libraries(odysseus-session Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::DBus qhotkey)

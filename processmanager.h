@@ -11,9 +11,11 @@
 class ProcessManager : public QObject
 {
     Q_OBJECT
+    Q_CLASSINFO("Odysseus Session", "me.aren.OdysseusSession")
 public:
     ProcessManager();
     void loadSystemProcesses();
+public slots:
     void logout();
 private:
     QMap<QString, QProcess*> systemProcesses;

@@ -33,6 +33,10 @@ void ProcessManager::loadSystemProcesses()
 {
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("openbox"), QStringList());
+    list << qMakePair(QString("odysseus-desktop"), QStringList());
+    list << qMakePair(QString("appdyne"), QStringList());
+    list << qMakePair(QString("gnome-terminal"), QStringList());
+    list << qMakePair(QString("d-feet"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
