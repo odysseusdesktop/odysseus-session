@@ -21,3 +21,5 @@ add_executable(odysseus-session
 )
 
 target_link_libraries(odysseus-session Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::DBus qhotkey)
+
+install(TARGETS odysseus-session RUNTIME DESTINATION /usr/bin)

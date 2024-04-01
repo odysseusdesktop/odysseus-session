@@ -32,8 +32,10 @@ void ProcessManager::logout()
 void ProcessManager::loadSystemProcesses()
 {
     QList<QPair<QString, QStringList>> list;
-    list << qMakePair(QString("openbox"), QStringList());
+    list << qMakePair(QString("kwin_x11"), QStringList());
     list << qMakePair(QString("odysseus-desktop"), QStringList());
+    list << qMakePair(QString("odysseus-dock"), QStringList());
+    list << qMakePair(QString("odysseus-launcher"), QStringList());
     list << qMakePair(QString("appdyne"), QStringList());
     list << qMakePair(QString("gnome-terminal"), QStringList());
     list << qMakePair(QString("d-feet"), QStringList());
