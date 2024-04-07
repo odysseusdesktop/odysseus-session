@@ -7,6 +7,7 @@
 #include <QProcess>
 #include <QDebug>
 #include <QGuiApplication>
+#include <QDBusInterface>
 
 class ProcessManager : public QObject
 {
@@ -15,6 +16,7 @@ class ProcessManager : public QObject
 public:
     ProcessManager();
     void loadSystemProcesses();
+    void showLauncherDBus();
 public slots:
     void logout();
 private:

@@ -11,9 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Gui DBus REQUIRED)
+find_package(QT NAMES Qt6 COMPONENTS Core Gui DBus REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui DBus REQUIRED)
 find_package(QHotkey REQUIRED)
+
+add_subdirectory(chotkeys)
 
 add_executable(odysseus-session
   main.cpp

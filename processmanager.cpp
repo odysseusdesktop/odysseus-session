@@ -33,12 +33,10 @@ void ProcessManager::loadSystemProcesses()
 {
     QList<QPair<QString, QStringList>> list;
     list << qMakePair(QString("kwin_x11"), QStringList());
+    list << qMakePair(QString("chotkeys"), QStringList());
     list << qMakePair(QString("odysseus-desktop"), QStringList());
     list << qMakePair(QString("odysseus-dock"), QStringList());
     list << qMakePair(QString("odysseus-launcher"), QStringList());
-    list << qMakePair(QString("appdyne"), QStringList());
-    list << qMakePair(QString("gnome-terminal"), QStringList());
-    list << qMakePair(QString("d-feet"), QStringList());
 
     for (QPair<QString, QStringList> pair : list) {
         QProcess *process = new QProcess;
@@ -49,5 +47,18 @@ void ProcessManager::loadSystemProcesses()
         qDebug() << "loadSystemProcesses(): " << pair.first << pair.second;
 
         systemProcesses.insert(pair.first, process);
+    }
+}
+
+void ProcessManager::showLauncherDBus()
+{
+    QDBusInterface iface("me.aren.OdysseusLauncher", "/LauncherViewManager", "", QDBusConnection::sessionBus());
+    if (iface.isValid()) {
+        QDBusMessage reply = iface.call("showView");
+        if (reply.type() == QDBusMessage::ErrorMessage) {
+            qWarning() << "Error:" << reply.errorMessage();
+        }
+    } else {
+        qWarning() << "Interface is not valid";
     }
 }
