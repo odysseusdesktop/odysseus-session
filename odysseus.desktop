@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Exec=odysseus-session
+TryExec=odysseus-session
+Name=Odysseus
+Keywords=session
+Comment=session
